@@ -47,8 +47,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 labelText: 'Second Input',
                 border: OutlineInputBorder(),
               ),
+
             ),
+
             SizedBox(height: 16.0),
+
             ElevatedButton(
               onPressed: () {
                 // Access the input values using the controllers
