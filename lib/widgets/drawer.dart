@@ -1,28 +1,50 @@
+import 'package:card_recharging_ful_application/screens/call_me_back.dart';
 import 'package:flutter/material.dart';
+import 'package:card_recharging_ful_application/models/drawerModel.dart';
+
 Drawer buildMyDrawer(BuildContext context) {
+  List<DrawerModel> drawerElements = [
+    DrawerModel(title: "Call me", redirectPage:""),
+    DrawerModel(title: "Check Balance", redirectPage: ""),
+    DrawerModel(title: "Charge Balance", redirectPage: ""),
+    DrawerModel(title: "Transfer Balance", redirectPage: ""),
+    DrawerModel(title: "Buy Package", redirectPage: ""),
+  ];
+
   return Drawer(
     child: ListView(
       padding: EdgeInsets.zero,
       children: [
-        DrawerHeader(
-          decoration: BoxDecoration(
-            color: Colors.blue,
+        const SizedBox(
+          height: 100,
+          child: DrawerHeader(
+            decoration: BoxDecoration(
+              color: Colors.blue,
+            ),
+            child: Text('Drawer Header'),
           ),
-          child: Text('Drawer Header'),
         ),
-        ListTile(
-          title: Text('Item 1'),
-          onTap: () {
-            // Handle item 1 tap
-          },
-        ),
-        ListTile(
-          title: Text('Item 2'),
-          onTap: () {
-            // Handle item 2 tap
-          },
-        ),
-        // Add more items as needed
+        for (var drawerElement in drawerElements)
+          Card(
+            elevation: 6,
+            child: ListTile(
+              title: Text(drawerElement.title),
+              onTap: () {
+                switch (drawerElement.title) {
+                  case "Call me":
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const CallMeBack()),
+                    );
+                    break;
+                  // Add cases for other routes
+                  default:
+                    // Handle the case where the route is not recognized
+                    break;
+                }
+              },
+            ),
+          ),
       ],
     ),
   );
