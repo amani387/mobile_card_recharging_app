@@ -219,10 +219,6 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
         ),
-        //the top container
-
-        //the top container ending
-
 
         Positioned(
           left: 0.0, // Align to the left edge of the screen
