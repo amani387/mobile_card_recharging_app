@@ -1,6 +1,9 @@
 import 'package:card_recharging_ful_application/screens/call_me_back.dart';
+import 'package:card_recharging_ful_application/screens/charge_balance.dart';
 import 'package:flutter/material.dart';
 import 'package:card_recharging_ful_application/models/drawerModel.dart';
+
+import '../utils/direct_call.dart';
 
 Drawer buildMyDrawer(BuildContext context) {
   List<DrawerModel> drawerElements = [
@@ -34,10 +37,19 @@ Drawer buildMyDrawer(BuildContext context) {
                   case "Call me":
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const CallMeBack()),
+                      MaterialPageRoute(builder: (context) =>  CallMeBack()),
                     );
                     break;
-                  // Add cases for other routes
+                  case "Charge Balance":
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) =>  ChargeBalance()),
+                    );
+                    break;
+                  case "Check Balance":
+                    callNumber("*804#");
+                    break;
+                  
                   default:
                     // Handle the case where the route is not recognized
                     break;
