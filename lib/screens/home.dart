@@ -3,13 +3,17 @@ import 'package:card_recharging_ful_application/screens/charge_balance.dart';
 import 'package:card_recharging_ful_application/utils/direct_call.dart';
 import 'package:flutter/material.dart';
 import '../widgets/drawer.dart';
-
+import '../services/card_scanner.dart';
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+
+   //const HomeScreen({super.key});
+  final CounterUtil counterUtil = CounterUtil();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+
       appBar: AppBar(
         backgroundColor: Color(0xFFFFFFFF),
         iconTheme: IconThemeData(color: Colors.black),
@@ -20,12 +24,14 @@ class HomeScreen extends StatelessWidget {
               onPressed: () {
                 Scaffold.of(context).openDrawer();
               },
+
             ),
           ),
           Expanded(
             child: IconButton(
               icon: Icon(Icons.qr_code),
               onPressed: () {
+                counterUtil.startScan(context);
                 // Handle QR code icon tap
               },
             ),
@@ -231,26 +237,26 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
-          //the top container
 
-          //the top container ending
 
-          Positioned(
-            left: 0.0, // Align to the left edge of the screen
-            bottom: 100.0,
 
-            child: Container(
-              child: const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 60.0),
-                child: Text(
-                  'Welcome to Memuya ',
-                  textAlign: TextAlign.justify,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 24.0,
-                    color: Colors.black, // Set the text color to black
-                    fontStyle: FontStyle.normal,
-                    decoration: TextDecoration.none,
+
+        Positioned(
+          left: 0.0, // Align to the left edge of the screen
+          bottom: 100.0,
+          child: Container(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 60.0),
+              child: Text(
+                'Welcome to Memuya ',
+                textAlign: TextAlign.justify,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24.0,
+                  color: Colors.black, // Set the text color to black
+                  fontStyle: FontStyle.normal,
+                  decoration: TextDecoration.none,
+
                     // You can adjust this property as needed
                   ),
                 ),
