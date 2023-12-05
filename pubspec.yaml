@@ -38,7 +38,15 @@ dependencies:
   url_launcher: ^6.2.1
   permission_handler: ^11.0.1
   flutter_phone_direct_caller: ^2.1.1
+
   flutter_mobile_vision_2: ^0.1.15
+
+  flutter_contacts: ^1.1.7+1
+  fluttercontactpicker: ^4.7.0
+  contacts_service: ^0.6.3
+  flutter_native_contact_picker: ^0.0.6
+  ussd_advanced: ^1.1.0
+
 
 dev_dependencies:
   flutter_test:

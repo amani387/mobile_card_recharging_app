@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 
 class CustomTextField extends StatefulWidget {
   final String hintText;
@@ -12,6 +11,8 @@ class CustomTextField extends StatefulWidget {
   final Function(String)? onChanged;
   final Function()? onTap;
   final InputDecoration decoration;
+  final int? maxLength;
+  final String? error;
 
   const CustomTextField({
     super.key,
@@ -25,6 +26,8 @@ class CustomTextField extends StatefulWidget {
     this.onChanged,
     this.onTap,
     this.decoration = const InputDecoration(),
+    this.maxLength,
+    this.error,
   });
 
   @override
@@ -43,10 +46,14 @@ class _CustomTextFieldState extends State<CustomTextField> {
       enabled: widget.enabled,
       onChanged: widget.onChanged,
       onTap: widget.onTap,
-      maxLength: 13,
-      
+      maxLength: widget.maxLength,
       decoration: widget.decoration.copyWith(
         hintText: widget.hintText,
+        suffixIcon: IconButton(
+          onPressed: () => widget.controller.clear(),
+          icon: const Icon(Icons.clear),
+        ),
+        error: Text(widget.error.toString(),style: const TextStyle(color: Colors.red),),
         contentPadding:
             const EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
         border: OutlineInputBorder(
@@ -56,16 +63,3 @@ class _CustomTextFieldState extends State<CustomTextField> {
     );
   }
 }
-
-// Example usage:
-// CustomTextField(
-//   hintText: 'Enter your text',
-//   controller: myController,
-//   onChanged: (value) {
-//     // Handle text changes
-//   },
-//   onTap: () {
-//     // Handle tap
-//   },
-//   // Add other properties as needed
-// )
