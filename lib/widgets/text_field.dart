@@ -13,6 +13,7 @@ class CustomTextField extends StatefulWidget {
   final InputDecoration decoration;
   final int? maxLength;
   final String? error;
+  final String? label;
 
   const CustomTextField({
     super.key,
@@ -28,6 +29,7 @@ class CustomTextField extends StatefulWidget {
     this.decoration = const InputDecoration(),
     this.maxLength,
     this.error,
+    this.label
   });
 
   @override
@@ -38,6 +40,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      
       controller: widget.controller,
       obscureText: widget.obscureText,
       keyboardType: widget.keyboardType,
@@ -48,6 +51,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       onTap: widget.onTap,
       maxLength: widget.maxLength,
       decoration: widget.decoration.copyWith(
+        label: Text(widget.label.toString()),
         hintText: widget.hintText,
         suffixIcon: IconButton(
           onPressed: () => widget.controller.clear(),

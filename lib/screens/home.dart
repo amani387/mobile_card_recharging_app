@@ -79,6 +79,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
+               
                 ],
               ),
               Expanded(
@@ -88,8 +89,10 @@ class HomeScreen extends StatelessWidget {
                     color: Color(0xFF51C25B),
                   ),
                   child: Column(
+
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [

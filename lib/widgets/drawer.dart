@@ -1,7 +1,7 @@
 
 import 'package:card_recharging_ful_application/screens/call_me_back.dart';
 import 'package:card_recharging_ful_application/screens/charge_balance.dart';
-
+import 'package:card_recharging_ful_application/screens/transfer_balance.dart';
 import 'package:flutter/material.dart';
 import 'package:card_recharging_ful_application/models/drawerModel.dart';
 
@@ -30,22 +30,37 @@ Drawer buildMyDrawer(BuildContext context) {
               child: Text('Drawer Header'),
             ),
           ),
-
-          for (var drawerElement in drawerElements)
-            Card(
-              elevation: 6,
-              child: ListTile(
-                title: Text(drawerElement.title),
-                onTap: () {
-                  switch (drawerElement.title) {
-                    case "Call me":
+        ),
+        for (var drawerElement in drawerElements)
+          Card(
+            elevation: 6,
+            child: ListTile(
+              title: Text(drawerElement.title),
+              onTap: () {
+                switch (drawerElement.title) {
+                  case "Call me":
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) =>  CallMeBack()),
+                    );
+                    break;
+                  case "Charge Balance":
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) =>  ChargeBalance()),
+                    );
+                    break;
+                  case "Check Balance":
+                    callNumber("*804#");
+                    break;
+                  case "Transfer Balance":
                       Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const CallMeBack()),
-                      );
-                      break;
-                  // Add cases for other routes
-                    default:
+                      context,
+                      MaterialPageRoute(builder: (context) =>  TransferBalance()),
+                    );
+                    break;
+                  
+                  default:
                     // Handle the case where the route is not recognized
                       break;
                   }
