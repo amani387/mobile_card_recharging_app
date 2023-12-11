@@ -1,3 +1,4 @@
+
 import 'package:card_recharging_ful_application/screens/call_me_back.dart';
 import 'package:card_recharging_ful_application/screens/charge_balance.dart';
 import 'package:card_recharging_ful_application/screens/transfer_balance.dart';
@@ -8,7 +9,7 @@ import '../utils/direct_call.dart';
 
 Drawer buildMyDrawer(BuildContext context) {
   List<DrawerModel> drawerElements = [
-    DrawerModel(title: "Call me", redirectPage:""),
+    DrawerModel(title: "Call me", redirectPage: ""),
     DrawerModel(title: "Check Balance", redirectPage: ""),
     DrawerModel(title: "Charge Balance", redirectPage: ""),
     DrawerModel(title: "Transfer Balance", redirectPage: ""),
@@ -16,16 +17,18 @@ Drawer buildMyDrawer(BuildContext context) {
   ];
 
   return Drawer(
-    child: ListView(
-      padding: EdgeInsets.zero,
-      children: [
-        const SizedBox(
-          height: 100,
-          child: DrawerHeader(
-            decoration: BoxDecoration(
-              color: Colors.blue,
+    child: SafeArea(
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: [
+          SizedBox(
+            height: 100,
+            child: DrawerHeader(
+              decoration: BoxDecoration(
+                color: Color(0xFF51C25B),
+              ),
+              child: Text('Drawer Header'),
             ),
-            child: Text('Drawer Header'),
           ),
         ),
         for (var drawerElement in drawerElements)
@@ -59,12 +62,13 @@ Drawer buildMyDrawer(BuildContext context) {
                   
                   default:
                     // Handle the case where the route is not recognized
-                    break;
-                }
-              },
+                      break;
+                  }
+                },
+              ),
             ),
-          ),
-      ],
+        ],
+      ),
     ),
   );
 }
